@@ -1,0 +1,23 @@
+.navbar {
+  border: none;
+  border-bottom: 3px solid white;
+  color: white;
+}
+
+button {
+  font-size: medium;
+}
+
+.navbar-toggler {
+  color: white;
+}
+
+.navbar-toggler:hover {
+  box-shadow: 0 0 0 4px white;
+}
+
+.navbar-toggler :not(:focus),
+:not(:hover) {
+  outline: none;
+  box-shadow: none;
+}

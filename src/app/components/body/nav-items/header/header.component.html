@@ -1,0 +1,34 @@
+<header class="navbar container navbar-expand-lg navbar-dark bg-transparent">
+  <div class="container">
+    <h1 class="cursor-d">Logo</h1>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#nav-items"
+      aria-controls="nav-items"
+      aria-expanded="false"
+    >
+      <span class="navbar-toggler-icon fs-6"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="nav-items">
+      <button
+        class="btn btn-outline-light my-2 my-sm-0 mx-1"
+        routerLink="/cart"
+        type="button"
+      >
+        Cart <em class="bi bi-cart-fill"></em>
+      </button>
+      <button class="btn btn-outline-light my-2 my-sm-0 mx-1" type="button">
+        Profile <em class="bi bi-person-fill"></em>
+      </button>
+      <button
+        class="btn btn-outline-light my-2 my-sm-0 mx-1"
+        type="button"
+        (click)="logout()"
+      >
+        Logout <em class="bi bi-box-arrow-in-right"></em>
+      </button>
+    </div>
+  </div>
+</header>
