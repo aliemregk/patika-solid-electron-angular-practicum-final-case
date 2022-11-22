@@ -13,8 +13,8 @@ body {
   color: white;
   background: linear-gradient(
     90deg,
-    rgb(48, 27, 136) 0%,
-    rgb(0, 165, 193) 100%
+    rgb(38, 16, 126) 0%,
+    rgb(4, 196, 230) 100%
   );
 }
 
@@ -33,4 +33,8 @@ body {
 
 .cursor-p {
   cursor: pointer;
+}
+
+.invalid-feedback {
+  color: white;
 }

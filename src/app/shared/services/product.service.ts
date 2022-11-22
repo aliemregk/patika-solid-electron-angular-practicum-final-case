@@ -9,7 +9,7 @@ import { Product } from '../models/product.model';
 })
 export class ProductService {
 
-  private apiUrl = Constants.API_URL + "/products";
+  private apiUrl = Constants.API_URL + "/products/";
 
   constructor(private readonly httpClient: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class ProductService {
   }
 
   getProductById(productId: number): Observable<Product> {
-    return this.httpClient.get<Product>(this.apiUrl + "?productId=" + productId);
+    return this.httpClient.get<Product>(this.apiUrl + productId);
   }
 
   updateProduct(productToUpdate: Product): Observable<Product> {

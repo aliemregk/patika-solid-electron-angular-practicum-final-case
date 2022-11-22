@@ -11,7 +11,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit, OnDestroy {
 
-  public products!: Product[];
+  protected products!: Product[];
   private subscription!: Subscription;
 
   constructor(
@@ -34,7 +34,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
       }
     });
   }
-  
+
   //Called once, before the instance is destroyed.
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

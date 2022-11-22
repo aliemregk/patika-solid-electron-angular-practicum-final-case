@@ -5,25 +5,34 @@
   <form class="mt-3" [formGroup]="loginForm">
     <div class="row justify-content-center">
       <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 mt-1 text-center">
-        <label for="email" class="form-label fs-5"> Email address </label>
-        <input
-          formControlName="email"
-          type="email"
-          class="form-control m-auto w-100"
-          [ngClass]="getClass('email')"
-          id="email"
-          placeholder="Enter email"
-        />
-
-        <label for="password" class="form-label fs-5"> Password </label>
-        <input
-          formControlName="password"
-          type="password"
-          class="form-control m-auto w-100"
-          [ngClass]="getClass('password')"
-          id="password"
-          placeholder="Password"
-        />
+        <div>
+          <label for="email" class="form-label fs-5"> Email address </label>
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control m-auto w-100"
+            [ngClass]="getClass('email')"
+            id="email"
+            placeholder="Enter email"
+          />
+          <div class="invalid-feedback">
+            <small>Please check your email.</small>
+          </div>
+        </div>
+        <div>
+          <label for="password" class="form-label fs-5"> Password </label>
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control m-auto w-100"
+            [ngClass]="getClass('password')"
+            id="password"
+            placeholder="Password"
+          />
+          <div class="invalid-feedback">
+            <small>Please check your password.</small>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row col-xl-3 col-lg-4 col-md-5 col-sm-6 mt-4 m-auto">

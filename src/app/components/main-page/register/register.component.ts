@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-
   register() {
     if (this.registerForm.valid) {
       this.authService.register();

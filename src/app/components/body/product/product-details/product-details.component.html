@@ -1,1 +1,24 @@
-<p>product-details works!</p>
+<app-spinner *ngIf="!dataLoaded; else details"></app-spinner>
+<ng-template #details class="container">
+  <div class="row container m-auto mt-4 justify-content-center">
+    <div class="col-md-6 col-sm-12 pb-2">
+      <app-product-detail-slider
+        [productId]="product.id"
+      ></app-product-detail-slider>
+    </div>
+    <div class="col-md-6 col-sm-12 pb-2">
+      <div class="h-100 p-4 border rounded-3">
+        <h4 class="border-bottom cursor-d">{{ product.name }}</h4>
+        <p class="cursor-d">
+          {{ product.description }}
+        </p>
+      </div>
+    </div>
+    <div class="mt-2 w-25">
+      <button class="btn btn-outline-light w-100 fs-6" type="button">
+        <strong>{{ product.unitPrice }}₺ </strong>
+        <em class="bi bi-cart-fill"></em>
+      </button>
+    </div>
+  </div>
+</ng-template>

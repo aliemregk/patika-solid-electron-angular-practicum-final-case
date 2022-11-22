@@ -17,7 +17,6 @@
               placeholder="First Name"
             />
           </div>
-
           <div class="col-sm-6">
             <label for="lastName" class="form-label">Last name</label>
             <input
@@ -29,19 +28,18 @@
               placeholder="Last Name"
             />
           </div>
-
           <div class="col-sm-12">
             <label for="address" class="form-label">Address</label>
             <input
               formControlName="address"
               type="text"
+              maxlength="200"
               class="form-control"
               [ngClass]="getClass('address')"
               id="address"
               placeholder="1234 Main St"
             />
           </div>
-
           <div class="col-sm-6">
             <label for="email" class="form-label">Email </label>
             <input
@@ -53,7 +51,6 @@
               placeholder="you@example.com"
             />
           </div>
-
           <div class="col-sm-6">
             <label for="password" class="form-label">Password </label>
             <input

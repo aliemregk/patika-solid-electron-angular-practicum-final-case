@@ -20,6 +20,9 @@ import { PaymentComponent } from './components/body/payment/payment.component';
 import { ProductDetailsComponent } from './components/body/product/product-details/product-details.component';
 import { ProductsComponent } from './components/body/product/products/products.component';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { ProductDetailSliderComponent } from './components/body/product/product-detail-slider/product-detail-slider.component';
+import { SpinnerComponent } from './components/body/spinner/spinner.component';
+import { ShortenPipe } from './shared/pipes/shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { HotToastModule } from '@ngneat/hot-toast';
     ProductsComponent,
     CartComponent,
     PaymentComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductDetailSliderComponent,
+    SpinnerComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,

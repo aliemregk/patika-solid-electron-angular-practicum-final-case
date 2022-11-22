@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.authService.login();
       this.router.navigate(["products"]);
     } else {
-      this.toastr.error("Please check your email and password.", { dismissible: true })
+      this.toastr.error("Wrong email or password!", { dismissible: true })
     }
   }
 
