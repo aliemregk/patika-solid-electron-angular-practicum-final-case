@@ -1,0 +1,12 @@
+.card-body {
+  color: rgb(0, 104, 189);
+  line-height: 1rem;
+  font-size: medium;
+  padding: 9px 16px;
+}
+
+.product-img {
+  border-radius: 0.6rem;
+  height: 10rem;
+  padding: 5px;
+}

@@ -1,0 +1,19 @@
+@media (max-width: 620px) {
+  .nav-item,
+  .nav-item a {
+    display: block;
+    width: 100%;
+  }
+  .nav-item {
+    border-bottom: 1px solid white;
+  }
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-item a:hover {
+  color: rgb(0, 104, 189);
+  background-color: white;
+}

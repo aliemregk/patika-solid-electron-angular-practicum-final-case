@@ -1,1 +1,23 @@
-<p>products works!</p>
+<div class="container text-center">
+  <div
+    class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 gx-5 g-4 px-sm-5"
+  >
+    <div *ngFor="let product of products">
+      <div class="card cursor-p">
+        <img src="{{ product.coverImg }}" alt="" class="product-img" />
+        <div class="card-body">
+          <p class="card-text fw-bold">{{ product.name }}</p>
+          <small>
+            {{ product.description }}
+          </small>
+        </div>
+        <div class="card-body m-auto">
+          <p class="card-text fw-bold">{{ product.unitPrice }}₺</p>
+          <button class="btn btn-primary">
+            Add to cart <em class="bi bi-cart"></em>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

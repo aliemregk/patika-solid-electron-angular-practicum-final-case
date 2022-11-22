@@ -10,6 +10,7 @@
           formControlName="email"
           type="email"
           class="form-control m-auto w-100"
+          [ngClass]="getClass('email')"
           id="email"
           placeholder="Enter email"
         />
@@ -19,6 +20,7 @@
           formControlName="password"
           type="password"
           class="form-control m-auto w-100"
+          [ngClass]="getClass('password')"
           id="password"
           placeholder="Password"
         />

@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
       this.authService.register();
       this.router.navigate(["products"]);
     } else {
-      this.toastr.error("Please check the information you entered.")
+      this.toastr.error("Please check the information you entered.", { dismissible: true })
     }
   }
 

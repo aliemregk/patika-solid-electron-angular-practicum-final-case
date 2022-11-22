@@ -1,0 +1,14 @@
+#search-bar,
+em {
+  color: rgb(0, 104, 189);
+}
+
+form {
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 577px) {
+  #search-bar {
+    width: 260px;
+  }
+}
