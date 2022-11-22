@@ -3,7 +3,7 @@
     class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-2 gx-5 g-4 mx-md-3 px-sm-5"
   >
     <div
-      *ngFor="let product of products as aync"
+      *ngFor="let product of products$ | async"
       routerLink="/productdetails/{{ product.id }}"
     >
       <div class="card cursor-p">

@@ -1,7 +1,7 @@
 import { HotToastService } from '@ngneat/hot-toast';
 import { Product } from './../../../../shared/models/product.model';
 import { ProductService } from './../../../../shared/services/product.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   protected product!: Product;
   protected dataLoaded: boolean = false;
@@ -23,11 +23,11 @@ export class ProductDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getParamFromUrl();
+    this.getUrlParams();
   }
 
-  getParamFromUrl() {
-    this.activatedRoute.params.subscribe({
+  getUrlParams() {
+    this.subscription = this.activatedRoute.params.subscribe({
       next: (params) => {
         this.getProductDetails(params["productid"]);
       },
@@ -49,5 +49,10 @@ export class ProductDetailsComponent implements OnInit {
         this.toastr.error("Can not get data!");
       }
     });
+  }
+
+  //Called once, before the instance is destroyed.
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

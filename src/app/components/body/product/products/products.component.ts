@@ -1,8 +1,8 @@
-import { HotToastService } from '@ngneat/hot-toast';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { filter, map, Observable, Subscription } from 'rxjs';
 import { Product } from './../../../../shared/models/product.model';
 import { ProductService } from './../../../../shared/services/product.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-products',
@@ -11,28 +11,36 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit, OnDestroy {
 
-  protected products!: Product[];
+  private categoryId?: number;
   private subscription!: Subscription;
+  protected products$ = new Observable<Product[]>();
 
   constructor(
     private readonly productService: ProductService,
-    private readonly toastr: HotToastService
+    private readonly activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getUrlParams();
+  }
+
+  getUrlParams() {
+    this.subscription = this.activatedRoute.params.subscribe({
+      next: (params) => {
+        this.categoryId = params["categoryid"];
+        this.getProducts();
+      }
+    });
   }
 
   getProducts() {
-    this.subscription = this.productService.getAllProducts().subscribe({
-      next: (data) => {
-        this.products = data;
-      },
-      error: (error) => {
-        console.log("err");
-        this.toastr.error("Can not get data!");
-      }
-    });
+    if (this.categoryId) {
+      this.products$ = this.productService.getAllProducts()
+        .pipe(map(data => data.filter(product => product.categoryId == this.categoryId)));
+
+    } else {
+      this.products$ = this.productService.getAllProducts();
+    }
   }
 
   //Called once, before the instance is destroyed.

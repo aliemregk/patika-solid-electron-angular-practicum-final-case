@@ -17,7 +17,8 @@ const routes: Routes = [
   {
     path: "", component: SiteLayoutComponent,
     children: [
-      { path: "products", component: ProductsComponent }
+      { path: "products", component: ProductsComponent },
+      { path: "products/category/:categoryid", component: ProductsComponent },
     ]
   },
   {
