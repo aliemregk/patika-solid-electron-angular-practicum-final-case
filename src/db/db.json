@@ -1,0 +1,210 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "unitPrice": 18000,
+      "description": "MSI Laptop",
+      "coverImg": "https://images.unsplash.com/photo-1617294864710-bb97f05457f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "categoryId": 1,
+      "stock": 370
+    },
+    {
+      "id": 2,
+      "name": "Mouse",
+      "unitPrice": 900,
+      "description": "Logitech Mouse",
+      "coverImg": "https://images.unsplash.com/photo-1605773527852-c546a8584ea3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+      "categoryId": 3,
+      "stock": 310
+    },
+    {
+      "id": 3,
+      "name": "Phone",
+      "unitPrice": 10500,
+      "description": "Samsung Phone",
+      "coverImg": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1181&q=80",
+      "categoryId": 4,
+      "stock": 220
+    },
+    {
+      "id": 4,
+      "name": "Laptop",
+      "unitPrice": 16500,
+      "description": "Asus Laptop",
+      "coverImg": "https://images.unsplash.com/photo-1527698266440-12104e498b76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "categoryId": 1,
+      "stock": 100
+    },
+    {
+      "id": 5,
+      "name": "Table",
+      "unitPrice": 8500,
+      "description": "Dining Table",
+      "coverImg": "https://images.unsplash.com/photo-1565791380713-1756b9a05343?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+      "categoryId": 2,
+      "stock": 170
+    },
+    {
+      "id": 6,
+      "name": "Chair",
+      "unitPrice": "500",
+      "description": "Wooden Chair",
+      "coverImg": "https://images.unsplash.com/photo-1581539250439-c96689b516dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+      "categoryId": 2,
+      "stock": 250
+    },
+    {
+      "id": 7,
+      "name": "Sofa",
+      "unitPrice": 1500,
+      "description": "Fabric Sofa",
+      "coverImg": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "categoryId": 2,
+      "stock": 300
+    },
+    {
+      "id": 8,
+      "name": "Keyboard",
+      "unitPrice": 700,
+      "description": "Microsoft Keyboard",
+      "coverImg": "https://images.pexels.com/photos/841228/pexels-photo-841228.jpeg",
+      "categoryId": 3,
+      "stock": 200
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Computers"
+    },
+    {
+      "id": 2,
+      "name": "Furnitures"
+    },
+    {
+      "id": 3,
+      "name": "Computer Peripherals"
+    },
+    {
+      "id": 4,
+      "name": "Phones"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@email.com",
+      "password": 123,
+      "address": "Douglas Extension Suite 847 McKenziehaven"
+    },
+    {
+      "id": 2,
+      "firstName": "Arthur",
+      "lastName": "Smith",
+      "email": "arthur.smith@email.com",
+      "password": 123,
+      "address": "Kulas Light Apt. 556 Gwenborough"
+    },
+    {
+      "id": 3,
+      "firstName": "Linda",
+      "lastName": "Johnson",
+      "email": "linda.johnson@email.com",
+      "password": 123,
+      "address": "Victor Plains Suite 879 Wisokyburgh"
+    },
+    {
+      "id": 4,
+      "firstName": "Ali",
+      "lastName": "Gök",
+      "email": "ali@email.com",
+      "password": 123,
+      "address": "Abc St. 11 Ankara"
+    }
+  ],
+  "photos": [
+    {
+      "id": 1,
+      "url": "",
+      "productId": 1
+    },
+    {
+      "id": 2,
+      "url": "",
+      "productId": 1
+    },
+    {
+      "id": 3,
+      "url": "",
+      "productId": 2
+    },
+    {
+      "id": 4,
+      "url": "",
+      "productId": 2
+    },
+    {
+      "id": 5,
+      "url": "",
+      "productId": 3
+    },
+    {
+      "id": 6,
+      "url": "",
+      "productId": 3
+    },
+    {
+      "id": 7,
+      "url": "",
+      "productId": 4
+    },
+    {
+      "id": 8,
+      "url": "",
+      "productId": 4
+    },
+    {
+      "id": 9,
+      "url": "",
+      "productId": 5
+    },
+    {
+      "id": 10,
+      "url": "",
+      "productId": 5
+    },
+    {
+      "id": 11,
+      "url": "",
+      "productId": 6
+    },
+    {
+      "id": 12,
+      "url": "",
+      "productId": 6
+    },
+    {
+      "id": 13,
+      "url": "",
+      "productId": 7
+    },
+    {
+      "id": 14,
+      "url": "",
+      "productId": 7
+    },
+    {
+      "id": 15,
+      "url": "",
+      "productId": 8
+    },
+    {
+      "id": 16,
+      "url": "",
+      "productId": 8
+    }
+  ]
+}
