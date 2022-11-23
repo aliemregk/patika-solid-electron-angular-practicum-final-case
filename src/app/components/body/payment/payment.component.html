@@ -1,1 +1,119 @@
-<p>payment works!</p>
+<div class="container my-5">
+  <form [formGroup]="paymentForm">
+    <div class="row justify-content-center">
+      <div class="row col-md-6 col-sm-10 mt-1 justify-content-center">
+        <div class="col-md-6 col-sm-4 pt-1">
+          <label for="firstName" class="form-label">First name</label>
+          <input
+            formControlName="firstName"
+            type="text"
+            [ngClass]="getClass('firstName')"
+            class="form-control"
+            id="firstName"
+            placeholder="First Name"
+          />
+        </div>
+        <div class="col-md-6 col-sm-4 pt-1">
+          <label for="lastName" class="form-label">Last name</label>
+          <input
+            formControlName="lastName"
+            type="text"
+            [ngClass]="getClass('lastName')"
+            class="form-control"
+            id="lastName"
+            placeholder="Last Name"
+          />
+        </div>
+        <div class="col-md-12 col-sm-8 pt-1">
+          <label for="cardNumber" class="form-label">Address</label>
+          <input
+            formControlName="address"
+            type="text"
+            [ngClass]="getClass('address')"
+            class="form-control"
+            id="address"
+            placeholder="Enter your address.."
+            maxlength="200"
+          />
+        </div>
+        <div class="col-md-12 col-sm-8 pt-1">
+          <label for="cardNumber" class="form-label">Card Number</label>
+          <input
+            formControlName="cardNumber"
+            type="number"
+            [ngClass]="getClass('cardNumber')"
+            class="form-control"
+            id="cardNumber"
+            placeholder="1234123412341234"
+            onkeypress="if(this.value.length > 15) return false"
+            min="1000000000000000"
+            max="9999999999999999"
+          />
+        </div>
+        <div class="col-md-6 col-sm-8 pt-1">
+          <label for="expiry" class="form-label">Expiry</label>
+          <input
+            formControlName="expiry"
+            type="month"
+            lang="en"
+            [maxLength]="7"
+            [ngClass]="getClass('expiry')"
+            class="form-control"
+            id="expiry"
+          />
+        </div>
+        <div class="col-md-6 col-sm-8 pt-1">
+          <label for="security" class="form-label">CVV/CVC</label>
+          <input
+            formControlName="security"
+            lang="en-EN"
+            type="number"
+            max="999"
+            onkeypress="if(this.value.length >2) return false"
+            placeholder="***"
+            [ngClass]="getClass('security')"
+            class="form-control"
+            id="cvv"
+            min="100"
+          />
+        </div>
+      </div>
+      <hr class="my-3" />
+      <div class="form-check d-flex justify-content-center">
+        <input
+          formControlName="contract"
+          class="form-check-input me-2"
+          type="checkbox"
+          id="contract"
+        />
+        <label class="form-check-label" for="contract">
+          I agree all statements in
+          <a href="#" class="text-body"><u>sales contract</u></a
+          >.
+        </label>
+      </div>
+      <div class="form-check d-flex justify-content-center">
+        <input
+          formControlName="privacy"
+          class="form-check-input me-2"
+          type="checkbox"
+          id="privacy-policy"
+        />
+        <label class="form-check-label" for="privacy-policy">
+          I read and understand
+          <a href="#" class="text-body"><u>privacy policy</u></a
+          >.
+        </label>
+      </div>
+    </div>
+    <div class="row col-md-4 col-sm-5 mt-4 m-auto">
+      <button
+        type="button"
+        class="btn btn-outline-light px-2 w-100 fs-5"
+        (click)="pay()"
+      >
+        Pay <em class="bi bi-credit-card"></em> + total
+      </button>
+    </div>
+  </form>
+</div>

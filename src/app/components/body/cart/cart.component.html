@@ -1,1 +1,62 @@
-<p>cart works!</p>
+<div class="container border-top pt-4">
+  <div class="container col-lg-10 col-md-12">
+    <div class="container py-3 text-center border rounded cursor-d">
+      Your cart is empty.
+    </div>
+    <table class="table table-responsive align-middle cursor-d">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total Price</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="product-row">
+          <td class="fw-bold">1</td>
+          <td>name</td>
+          <td>price</td>
+          <td>quantity</td>
+          <td>total price</td>
+          <td>
+            <button class="btn btn-outline-light">
+              Remove <em class="bi bi-trash"></em>
+            </button>
+          </td>
+        </tr>
+        <tr class="product-row">
+          <td class="fw-bold">2</td>
+          <td>name</td>
+          <td>price</td>
+          <td>quantity</td>
+          <td>total price</td>
+          <td>
+            <button class="btn btn-outline-light">
+              Remove <em class="bi bi-trash"></em>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td class="fw-bold">Cart Total</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="fw-bold">Total Price ₺</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-light fw-bold"
+              routerLink="payment"
+            >
+              Confirm
+              <em class="bi bi-check-lg"></em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

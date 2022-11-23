@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Constants } from '../constants/constants';
+import { API_URL } from '../constants/constants';
 import { Product } from '../models/product.model';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Product } from '../models/product.model';
 })
 export class ProductService {
 
-  private apiUrl = Constants.API_URL + "/products/";
+  private apiUrl = API_URL + "/products/";
 
   constructor(private readonly httpClient: HttpClient) { }
 
