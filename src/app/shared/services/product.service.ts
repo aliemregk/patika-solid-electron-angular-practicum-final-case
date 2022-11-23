@@ -11,18 +11,35 @@ export class ProductService {
 
   private apiUrl = API_URL + "/products/";
 
+  /**
+   * @param  {HttpClient} httpClient
+   * HttpClient injection for requests.
+   */
   constructor(private readonly httpClient: HttpClient) { }
 
-  getAllProducts(): Observable<Product[]> {
+  /**
+   * @returns Observable<Product[]>
+   * Get request for all products.
+   */
+  public getAllProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.apiUrl);
   }
 
-  getProductById(productId: number): Observable<Product> {
+  /**
+   * @param  {number} productId
+   * @returns Observable<Product>
+   * Get request for a single product according to given ID.
+   */
+  public getProductById(productId: number): Observable<Product> {
     return this.httpClient.get<Product>(this.apiUrl + productId);
   }
-
-  updateProduct(productToUpdate: Product): Observable<Product> {
-    console.log("service", productToUpdate);
+  
+  /**
+   * @param  {Product} productToUpdate
+   * @returns Observable<Product>
+   * Put request for updating a product.
+   */
+  public updateProduct(productToUpdate: Product): Observable<Product> {
     return this.httpClient.put<Product>(this.apiUrl, productToUpdate);
   }
 }

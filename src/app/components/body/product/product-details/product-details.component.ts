@@ -4,6 +4,7 @@ import { ProductService } from './../../../../shared/services/product.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -19,7 +20,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private readonly productService: ProductService,
     private readonly activatedRoute: ActivatedRoute,
-    private readonly toastr: HotToastService
+    private readonly toastr: HotToastService,
+    private readonly cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +34,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         this.getProductDetails(params["productid"]);
       },
       error: () => {
-        console.log("err");
         this.toastr.error("Can not get data!");
       }
     });
@@ -45,10 +46,13 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         this.product = data;
       },
       error: () => {
-        console.log("err");
         this.toastr.error("Can not get data!");
       }
     });
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addProductToCart(product);
   }
 
   //Called once, before the instance is destroyed.

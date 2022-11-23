@@ -2,21 +2,23 @@
   <div
     class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-2 gx-5 g-4 mx-md-3 px-sm-5"
   >
-    <div
-      *ngFor="let product of products$ | async"
-      routerLink="/productdetails/{{ product.id }}"
-    >
+    <div *ngFor="let product of products$ | async">
       <div class="card cursor-p">
-        <img src="{{ product.coverImg }}" alt="" class="product-img" />
-        <div class="card-body">
+        <img
+          src="{{ product.coverImg }}"
+          alt=""
+          class="product-img"
+          routerLink="/productdetails/{{ product.id }}"
+        />
+        <div class="card-body" routerLink="/productdetails/{{ product.id }}">
           <p class="card-text fw-bold fs-6">{{ product.name }}</p>
           <small>
             {{ product.description | shorten }}
           </small>
+          <p class="card-text fw-bold mt-2">{{ product.unitPrice }}₺</p>
         </div>
         <div class="card-body m-auto">
-          <p class="card-text fw-bold">{{ product.unitPrice }}₺</p>
-          <button class="btn btn-primary">
+          <button class="btn btn-primary" (click)="addToCart(product)">
             Add to cart <em class="bi bi-cart"></em>
           </button>
         </div>

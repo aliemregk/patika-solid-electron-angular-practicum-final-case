@@ -15,7 +15,11 @@
       </div>
     </div>
     <div class="mt-2 w-25">
-      <button class="btn btn-outline-light w-100 fs-6" type="button">
+      <button
+        class="btn btn-outline-light w-100 fs-6"
+        type="button"
+        (click)="addToCart(product)"
+      >
         <strong>{{ product.unitPrice }}₺ </strong>
         <em class="bi bi-cart-fill"></em>
       </button>

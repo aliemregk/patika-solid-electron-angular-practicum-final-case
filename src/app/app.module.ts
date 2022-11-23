@@ -23,6 +23,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { ProductDetailSliderComponent } from './components/body/product/product-detail-slider/product-detail-slider.component';
 import { SpinnerComponent } from './components/body/spinner/spinner.component';
 import { ShortenPipe } from './shared/pipes/shorten.pipe';
+import { StoreModule } from '@ngrx/store';
+import { cartItemReducer } from "./state-management/cart-state/cartItem.reducer";
 
 @NgModule({
   declarations: [
@@ -51,12 +53,13 @@ import { ShortenPipe } from './shared/pipes/shorten.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     HotToastModule.forRoot({
-      position: 'bottom-center',
+      position: 'bottom-right',
       style: {
         border: '1px solid #FFF',
         color: 'rgb(0, 104, 189)'
       }
-    })
+    }),
+    StoreModule.forRoot({ cartItems: cartItemReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
