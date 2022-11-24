@@ -24,6 +24,7 @@ import { SpinnerComponent } from './components/body/spinner/spinner.component';
 import { ShortenPipe } from './shared/pipes/shorten.pipe';
 import { StoreModule } from '@ngrx/store';
 import { cartItemReducer } from "./state-management/cart-state/cartItem.reducer";
+import { NotFoundComponent } from './components/main-page/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { cartItemReducer } from "./state-management/cart-state/cartItem.reducer"
     ProductDetailsComponent,
     ProductDetailSliderComponent,
     SpinnerComponent,
-    ShortenPipe
+    ShortenPipe,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

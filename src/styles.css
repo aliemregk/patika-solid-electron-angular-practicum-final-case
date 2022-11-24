@@ -9,13 +9,9 @@
 }
 
 body {
-  min-width: 470px;
+  min-width: 460px;
   color: white;
-  background: linear-gradient(
-    90deg,
-    rgb(33, 8, 133) 0%,
-    rgb(0, 166, 196) 100%
-  );
+  background: linear-gradient(90deg, rgb(33, 8, 133) 0%, rgb(0, 166, 196) 100%);
 }
 
 .btn-outline-light:hover {
@@ -37,4 +33,8 @@ body {
 
 .invalid-feedback {
   color: white;
+}
+
+.border-d-w {
+  border: double white;
 }

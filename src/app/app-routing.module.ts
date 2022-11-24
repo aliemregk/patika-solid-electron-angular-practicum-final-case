@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './components/main-page/not-found/not-found.component';
 import { CartComponent } from './components/body/cart/cart.component';
 import { ProductDetailsComponent } from './components/body/product/product-details/product-details.component';
 import { ProductsComponent } from './components/body/product/products/products.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: "cart", component: CartComponent },
       { path: "cart/payment", component: PaymentComponent }
     ]
-  }
+  },
+  { path: "**", component: NotFoundComponent }
 ];
 
 @NgModule({

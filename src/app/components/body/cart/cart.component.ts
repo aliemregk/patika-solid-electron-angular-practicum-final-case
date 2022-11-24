@@ -48,13 +48,9 @@ export class CartComponent implements OnInit {
 
   /**
    * @returns number
-   * Calculate total price of cart and return this amount.
+   * Get cart total from cart service.
    */
   protected get totalPrice(): number {
-    let totalPrice: number = 0;
-    this.cartItems.forEach(item => {
-      totalPrice += item.quantity * item.product.unitPrice
-    });
-    return totalPrice;
+    return this.cartService.getTotalPrice();
   }
 }

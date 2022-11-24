@@ -97,6 +97,18 @@ export class CartService implements OnDestroy {
   }
 
   /**
+     * @returns number
+     * Calculate total price of cart and return this amount.
+     */
+  public getTotalPrice(): number {
+    let totalPrice: number = 0;
+    this.cartItems.forEach(item => {
+      totalPrice += item.quantity * item.product.unitPrice
+    });
+    return totalPrice;
+  }
+
+  /**
    * @returns void
    * Called once, before the instance is destroyed.
    * Unsubscription operation.

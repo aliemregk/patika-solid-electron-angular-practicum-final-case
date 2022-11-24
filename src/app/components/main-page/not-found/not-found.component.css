@@ -1,0 +1,9 @@
+h1 {
+  font-size: calc(3.5em + 1vmin);
+}
+#not-found-1 {
+  font-size: calc(2em + 1vmin);
+}
+#not-found-2 {
+  font-size: calc(1.3em + 1vmin);
+}
