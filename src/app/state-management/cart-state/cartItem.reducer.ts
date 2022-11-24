@@ -11,13 +11,15 @@ const initialState: State<CartItem> = {
 /**
  * @param  {State<CartItem>} initialState
  * Create reducer for add, remove and update actions.
- * Returns new state.
+ * @returns state after actions.
  * @param  {Action} addCartItem
- * add action is used for adding new items to state.
+ * Add action is used for adding new items to state.
  * @param  {Action} removeCartItem
- * remove action is used for removing items from state.
+ * Remove action is used for removing items from state.
+ * Find item in current state and find its index. Then create a new state and splice it.
  * @param  {Action} updateCartItem
- * update action is used for updating items in state.
+ * Update action is used for updating items in state.
+ * Find item in current state. Then create a new state and update item.
  */
 export const cartItemReducer = createReducer(
     initialState,
@@ -25,7 +27,9 @@ export const cartItemReducer = createReducer(
         data: [...state.data, cartItem]
     })),
     on(removeCartItem, (state, cartItem) => {
-        const indexToDelete: number = state.data.indexOf(cartItem);
+        const cartItemToDelete = state.data.find(item => item.product === cartItem.product);
+        const indexToDelete: number = state.data.indexOf(cartItemToDelete as CartItem);
+
         const newState: State<CartItem> = {
             data: [...state.data]
         }
@@ -38,8 +42,7 @@ export const cartItemReducer = createReducer(
         const newState: State<CartItem> = {
             data: [...state.data]
         }
-        newState.data.splice(indexToUpdate, 1);
-        newState.data.splice(indexToUpdate, 0, cartItem)
+        newState.data.splice(indexToUpdate, 1, cartItem)
         return newState;
     })
 );

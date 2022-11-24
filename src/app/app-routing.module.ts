@@ -1,7 +1,6 @@
 import { CartComponent } from './components/body/cart/cart.component';
 import { ProductDetailsComponent } from './components/body/product/product-details/product-details.component';
 import { ProductsComponent } from './components/body/product/products/products.component';
-import { DetailLayoutComponent } from './components/layouts/detail-layout/detail-layout.component';
 import { SiteLayoutComponent } from './components/layouts/site-layout/site-layout.component';
 import { RegisterComponent } from './components/main-page/register/register.component';
 import { LoginComponent } from './components/main-page/login/login.component';
@@ -19,11 +18,7 @@ const routes: Routes = [
     children: [
       { path: "products", component: ProductsComponent },
       { path: "products/category/:categoryid", component: ProductsComponent },
-    ]
-  },
-  {
-    path: "", component: DetailLayoutComponent, children: [
-      { path: "productdetails/:productid", component: ProductDetailsComponent }, // path: "productdetails/:productid"
+      { path: "productdetails/:productid", component: ProductDetailsComponent },
       { path: "cart", component: CartComponent },
       { path: "cart/payment", component: PaymentComponent }
     ]

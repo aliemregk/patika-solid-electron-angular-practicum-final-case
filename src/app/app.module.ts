@@ -5,7 +5,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SiteLayoutComponent } from './components/layouts/site-layout/site-layout.component';
-import { DetailLayoutComponent } from './components/layouts/detail-layout/detail-layout.component';
 import { MainPageComponent } from './components/main-page/main-page/main-page.component';
 import { LogoComponent } from './components/main-page/logo/logo.component';
 import { LoginComponent } from './components/main-page/login/login.component';
@@ -14,7 +13,7 @@ import { FooterComponent } from './components/body/footer/footer.component';
 import { HeaderComponent } from './components/body/nav-items/header/header.component';
 import { NavbarComponent } from './components/body/nav-items/navbar/navbar.component';
 import { SearchBarComponent } from './components/body/nav-items/search-bar/search-bar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/body/cart/cart.component';
 import { PaymentComponent } from './components/body/payment/payment.component';
 import { ProductDetailsComponent } from './components/body/product/product-details/product-details.component';
@@ -30,7 +29,6 @@ import { cartItemReducer } from "./state-management/cart-state/cartItem.reducer"
   declarations: [
     AppComponent,
     SiteLayoutComponent,
-    DetailLayoutComponent,
     MainPageComponent,
     LogoComponent,
     LoginComponent,
@@ -50,6 +48,7 @@ import { cartItemReducer } from "./state-management/cart-state/cartItem.reducer"
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     HotToastModule.forRoot({

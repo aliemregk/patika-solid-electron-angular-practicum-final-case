@@ -1,13 +1,16 @@
 <nav class="navbar container navbar-expand-lg navbar-light border-0">
-  <div #navbar class="container">
+  <div class="container">
     <ul class="nav nav-pills fs-6 m-auto justify-content-sm-center">
       <li class="nav-item">
         <a routerLink="/products" class="nav-link">All Products</a>
       </li>
-      <li class="nav-item" *ngFor="let category of categories$ | async">
-        <a routerLink="/products/category/{{ category.id }}" class="nav-link">{{
-          category.name
-        }}</a>
+      <li class="nav-item mx-1" *ngFor="let category of categories$ | async">
+        <a
+          routerLink="/products/category/{{ category.id }}"
+          routerLinkActive="active"
+          class="nav-link"
+          >{{ category.name }}</a
+        >
       </li>
     </ul>
   </div>

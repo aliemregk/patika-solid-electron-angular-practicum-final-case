@@ -15,8 +15,15 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   protected product!: Product;
   protected dataLoaded: boolean = false;
-  private subscription!: Subscription;
+  private subscriptions: Subscription[] = [];
 
+  /**
+   * @param  {ProductService} productService
+   * @param  {ActivatedRoute} activatedRoute
+   * @param  {HotToastService} toastr
+   * @param  {CartService} cartService
+   * Service injections.
+   */
   constructor(
     private readonly productService: ProductService,
     private readonly activatedRoute: ActivatedRoute,
@@ -24,12 +31,23 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     private readonly cartService: CartService
   ) { }
 
+  /**
+   * @returns void
+   * Called once, when the instance is created.
+   * Call getUrlParams() function.
+   */
   ngOnInit(): void {
     this.getUrlParams();
   }
 
-  getUrlParams() {
-    this.subscription = this.activatedRoute.params.subscribe({
+  /**
+   * @returns void
+   * Use activated route service to get productid parameter from URL.
+   * Assign the parameter to a variable and call getProducts() function.
+   * Push subscription to subscriptions array for unsubscribe operation.
+   */
+  private getUrlParams(): void {
+    let subscription = this.activatedRoute.params.subscribe({
       next: (params) => {
         this.getProductDetails(params["productid"]);
       },
@@ -37,10 +55,18 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         this.toastr.error("Can not get data!");
       }
     });
+    this.subscriptions.push(subscription);
   }
 
-  getProductDetails(productId: number) {
-    this.productService.getProductById(productId).subscribe({
+  /**
+   * @param  {number} productId
+   * @returns void
+   * Get product details from product service. Assign data to a local variable.
+   * Set dataLoaded as true if data fetched successfully.
+   * Push subscription to subscriptions array for unsubscribe operation.
+   */
+  private getProductDetails(productId: number): void {
+    let subscription = this.productService.getProductById(productId).subscribe({
       next: (data) => {
         this.dataLoaded = true;
         this.product = data;
@@ -49,14 +75,24 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         this.toastr.error("Can not get data!");
       }
     });
+    this.subscriptions.push(subscription);
   }
 
-  addToCart(product: Product) {
+  /**
+   * @param  {Product} product
+   * @returns void
+   * Add given product to cart.
+   */
+  protected addToCart(product: Product): void {
     this.cartService.addProductToCart(product);
   }
 
-  //Called once, before the instance is destroyed.
+  /**
+   * @returns void
+   * Called once, before the instance is destroyed.
+   * Unsubscription operations.
+   */
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 }

@@ -4,9 +4,6 @@
     display: block;
     width: 100%;
   }
-  .nav-item {
-    border-bottom: 1px solid white;
-  }
 }
 
 .nav-link {
@@ -16,4 +13,10 @@
 .nav-item a:hover {
   color: rgb(0, 104, 189);
   background-color: white;
+}
+
+.nav-link.active {
+  border-bottom: 3px solid white;
+  color: white;
+  background-color: transparent;
 }

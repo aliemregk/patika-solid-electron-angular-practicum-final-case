@@ -1,13 +1,16 @@
-<div class="container col-md-6 col-sm-8 pt-1 pb-3">
+<div class="container col-lg-5 col-md-6 col-sm-8 pt-1 pb-3">
   <form class="d-flex justify-content-center">
     <input
+      [(ngModel)]="searchText"
       id="search-bar"
+      name="search-bar"
       class="form-control me-2"
-      type="text"
-      placeholder="Search.."
+      type="search"
+      placeholder="Search something.."
+      (input)="onSearchTextChanged()"
     />
-    <button class="btn btn-light my-sm-0" type="submit" id="search-btn">
-      <em class="bi bi-search"></em>
-    </button>
   </form>
+</div>
+<div class="container d-flex justify-content-center mb-4" *ngIf="searchText">
+  Listing products for search : {{ searchText }}
 </div>
