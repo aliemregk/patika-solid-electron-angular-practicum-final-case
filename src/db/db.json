@@ -97,7 +97,7 @@
       "firstName": "John",
       "lastName": "Doe",
       "email": "john.doe@email.com",
-      "password": 123,
+      "password": "123456",
       "address": "Douglas Extension Suite 847 McKenziehaven"
     },
     {
@@ -105,7 +105,7 @@
       "firstName": "Arthur",
       "lastName": "Smith",
       "email": "arthur.smith@email.com",
-      "password": 123,
+      "password": "123456",
       "address": "Kulas Light Apt. 556 Gwenborough"
     },
     {
@@ -113,7 +113,7 @@
       "firstName": "Linda",
       "lastName": "Johnson",
       "email": "linda.johnson@email.com",
-      "password": 123,
+      "password": "123456",
       "address": "Victor Plains Suite 879 Wisokyburgh"
     },
     {
@@ -121,7 +121,7 @@
       "firstName": "Ali",
       "lastName": "Gök",
       "email": "ali@email.com",
-      "password": 123,
+      "password": "123456",
       "address": "Abc St. 11 Ankara"
     }
   ],

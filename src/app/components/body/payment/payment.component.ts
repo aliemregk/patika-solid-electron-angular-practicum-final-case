@@ -33,7 +33,7 @@ export class PaymentComponent implements OnInit {
   /**
    * @returns void
    * Called once, when the instance is created.
-   * Unsubscription operation.
+   * Call createPaymentForm() function.
    */
   ngOnInit(): void {
     this.createPaymentForm();
@@ -74,7 +74,7 @@ export class PaymentComponent implements OnInit {
   /**
    * @param  {string} formControlName
    * @returns string
-   * Get class with using form valdiation for given form control.
+   * Get class name with using form validation service for given form control.
    */
   protected getClass(formControlName: string): string {
     return this.formValidation.validate(this.paymentForm, formControlName);

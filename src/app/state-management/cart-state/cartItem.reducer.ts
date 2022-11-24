@@ -1,15 +1,10 @@
 import { addCartItem, removeCartItem, updateCartItem } from './cartItem.action';
 import { CartItem } from './../../shared/models/cartItem.model';
-import { State } from './../state';
 import { createReducer, on } from '@ngrx/store';
+import { CartState, initialState } from './cartItem.state';
+
 /**
- * Define inital cart state.
- */
-const initialState: State<CartItem> = {
-    data: Array<CartItem>()
-}
-/**
- * @param  {State<CartItem>} initialState
+ * @param  {CartState<CartItem>} initialState
  * Create reducer for add, remove and update actions.
  * @returns state after actions.
  * @param  {Action} addCartItem
@@ -30,7 +25,7 @@ export const cartItemReducer = createReducer(
         const cartItemToDelete = state.data.find(item => item.product === cartItem.product);
         const indexToDelete: number = state.data.indexOf(cartItemToDelete as CartItem);
 
-        const newState: State<CartItem> = {
+        const newState: CartState<CartItem> = {
             data: [...state.data]
         }
         newState.data.splice(indexToDelete, 1);
@@ -39,7 +34,7 @@ export const cartItemReducer = createReducer(
     on(updateCartItem, (state, cartItem) => {
         const indexToUpdate: number = state.data.indexOf(cartItem);
 
-        const newState: State<CartItem> = {
+        const newState: CartState<CartItem> = {
             data: [...state.data]
         }
         newState.data.splice(indexToUpdate, 1, cartItem)

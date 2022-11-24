@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
   /**
    * @returns void
    * Called once, when the instance is created.
-   * Unsubscription operation.
+   * Call getCart() function.
    */
   ngOnInit(): void {
     this.getCart();
