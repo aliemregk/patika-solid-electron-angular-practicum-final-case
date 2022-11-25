@@ -123,6 +123,14 @@
       "email": "ali@email.com",
       "password": "123456",
       "address": "Abc St. 11 Ankara"
+    },
+    {
+      "id": 5,
+      "firstName": "test",
+      "lastName": "test",
+      "address": "test address test address",
+      "email": "test@test",
+      "password": "test123"
     }
   ],
   "photos": [

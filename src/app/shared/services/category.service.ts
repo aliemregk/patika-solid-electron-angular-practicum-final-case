@@ -11,9 +11,17 @@ export class CategoryService {
 
   private apiUrl = API_URL + "/categories";
 
+  /**
+   * @param  {HttpClient} httpClient
+   * Service injection.
+   */
   constructor(private readonly httpClient: HttpClient) { }
 
-  getAllCategories(): Observable<Category[]> {
+  /**
+   * @returns Observable<Category[]>
+   * Get request for all categories. 
+   */
+  public getAllCategories(): Observable<Category[]> {
     return this.httpClient.get<Category[]>(this.apiUrl);
   }
 }

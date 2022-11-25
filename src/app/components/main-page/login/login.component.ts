@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   protected loginForm!: FormGroup;
+
   /**
    * @param  {FormBuilder} formBuilder
    * @param  {AuthService} authService
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   /**
    * @returns void
-   * Create login form
+   * Create login form.
    */
   private createLoginForm(): void {
     this.loginForm = this.formBuilder.group({
@@ -48,12 +49,12 @@ export class LoginComponent implements OnInit {
 
   /**
    * @returns void
-   * Check the login form. If valid, call login() function from auth service.
+   * Check the login form. If valid, call signIn() function from auth service.
    * Otherwise notify user to check input values.
    */
   protected login(): void {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value);
+      this.authService.signIn(this.loginForm.value);
     } else {
       this.toastr.error("Wrong email or password!", { dismissible: true })
     }
