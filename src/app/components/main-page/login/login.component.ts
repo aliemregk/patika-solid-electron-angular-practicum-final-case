@@ -3,6 +3,7 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from '../../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { loginError_message } from 'src/app/shared/constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -56,7 +57,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.signIn(this.loginForm.value);
     } else {
-      this.toastr.error("Wrong email or password!", { dismissible: true })
+      this.toastr.error(loginError_message, { dismissible: true })
     }
   }
 

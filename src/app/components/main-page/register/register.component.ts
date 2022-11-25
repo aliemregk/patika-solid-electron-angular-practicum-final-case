@@ -1,8 +1,8 @@
+import { checkInformation_message } from './../../../shared/constants/constants';
 import { HotToastService } from '@ngneat/hot-toast';
-import { Router } from '@angular/router';
 import { ValidationService } from './../../../shared/services/validation.service';
 import { AuthService } from './../../../shared/services/auth.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.controls['userDetails'].value);
     } else {
-      this.toastr.error("Please check the information you entered.", { dismissible: true })
+      this.toastr.error(checkInformation_message, { dismissible: true })
     }
   }
 

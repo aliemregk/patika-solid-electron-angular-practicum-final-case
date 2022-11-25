@@ -1,3 +1,5 @@
+import { LoginGuard } from './shared/guards/login.guard';
+import { UnsavedGuard } from './shared/guards/unsaved.guard';
 import { NotFoundComponent } from './components/main-page/not-found/not-found.component';
 import { CartComponent } from './components/body/cart/cart.component';
 import { ProductDetailsComponent } from './components/body/product/product-details/product-details.component';
@@ -15,13 +17,13 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   {
-    path: "", component: SiteLayoutComponent,
+    path: "", component: SiteLayoutComponent, canActivate: [LoginGuard],
     children: [
       { path: "products", component: ProductsComponent },
       { path: "products/category/:categoryid", component: ProductsComponent },
       { path: "productdetails/:productid", component: ProductDetailsComponent },
       { path: "cart", component: CartComponent },
-      { path: "cart/payment", component: PaymentComponent }
+      { path: "cart/payment", component: PaymentComponent, canDeactivate: [UnsavedGuard] }
     ]
   },
   { path: "**", component: NotFoundComponent }

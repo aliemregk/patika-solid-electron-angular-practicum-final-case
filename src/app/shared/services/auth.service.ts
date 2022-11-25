@@ -1,3 +1,4 @@
+import { welcome_message, email_message, password_message, loggedOut_message, signedUp_message } from './../constants/constants';
 import { RegisterModel } from './../models/register.model';
 import { UserService } from './user.service';
 import { firstValueFrom, Observable, Subscription } from 'rxjs';
@@ -40,7 +41,7 @@ export class AuthService {
     if (this.userToCheck) {
       this.checkPassword(loginModel);
     } else {
-      this.toastr.error("Email not found!");
+      this.toastr.error(email_message);
     }
   }
 
@@ -63,7 +64,7 @@ export class AuthService {
     if (this.userToCheck.password === loginModel.password) {
       this.login(loginModel);
     } else {
-      this.toastr.error("Wrong password!");
+      this.toastr.error(password_message);
     }
   }
   /**
@@ -74,7 +75,7 @@ export class AuthService {
   private login(loginModel: LoginModel): void {
     this.isLoggedIn = true;
     this.router.navigate(["products"]);
-    this.toastr.success("Welcome, " + loginModel.email + "!");
+    this.toastr.success(welcome_message + loginModel.email + "!");
     localStorage.setItem("logged in", loginModel.email);
   }
 
@@ -83,10 +84,9 @@ export class AuthService {
    * Logout and clear login information from local storage.
    */
   public logout(): void {
-    localStorage.removeItem("logged in");
-    localStorage.removeItem("registered");
+    localStorage.clear();
     this.isLoggedIn = false;
-    this.toastr.info("Logged out.");
+    this.toastr.info(loggedOut_message);
   }
 
   /**
@@ -107,7 +107,7 @@ export class AuthService {
     localStorage.setItem("registered", registerModel.email);
     this.isLoggedIn = true;
     this.router.navigate(["products"]);
-    this.toastr.success("Successfully signed up. Welcome, " + registerModel.email + "!");
+    this.toastr.success(signedUp_message + welcome_message + registerModel.email + "!");
   }
 
   /**

@@ -1,3 +1,5 @@
+import { Deactivate } from './../../../shared/guards/deactivate.component';
+import { paymentSucceed_message, checkInformation_message, canExit_message } from './../../../shared/constants/constants';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { ValidationService } from './../../../shared/services/validation.service';
 import { Router } from '@angular/router';
@@ -10,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent implements OnInit {
+export class PaymentComponent implements OnInit, Deactivate {
 
   protected paymentForm!: FormGroup;
 
@@ -63,11 +65,11 @@ export class PaymentComponent implements OnInit {
    */
   protected pay(): void {
     if (this.paymentForm.valid) {
-      this.toastr.success("Payment succeed.");
+      this.toastr.success(paymentSucceed_message);
       localStorage.setItem("Paid", "paid");
       this.router.navigate(["/products"]);
     } else {
-      this.toastr.error("Please check the information you entered.");
+      this.toastr.error(checkInformation_message);
     }
   }
 
@@ -86,5 +88,20 @@ export class PaymentComponent implements OnInit {
    */
   protected get totalPrice(): number {
     return this.cartService.getTotalPrice();
+  }
+
+  /**
+   * @returns boolean
+   * Ask user before exiting page to prevent data loss.
+   */
+  public canExit(): boolean {
+    if (this.paymentForm.dirty) {
+      if (confirm(canExit_message)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    return true;
   }
 }

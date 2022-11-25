@@ -5,6 +5,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { dataError_message } from 'src/app/shared/constants/constants';
 
 @Component({
   selector: 'app-product-details',
@@ -52,7 +53,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         this.getProductDetails(params["productid"]);
       },
       error: () => {
-        this.toastr.error("Can not get data!");
+        this.toastr.error(dataError_message);
       }
     });
     this.subscriptions.push(subscription);
@@ -72,7 +73,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         this.product = data;
       },
       error: () => {
-        this.toastr.error("Can not get data!");
+        this.toastr.error(dataError_message);
       }
     });
     this.subscriptions.push(subscription);

@@ -1,3 +1,4 @@
+import { addToCart_message, removeFromCart_message, storeError_message } from './../constants/constants';
 import { Subscription } from 'rxjs';
 import { Product } from './../models/product.model';
 import { CartItem } from './../models/cartItem.model';
@@ -38,7 +39,7 @@ export class CartService implements OnDestroy {
         this.cartItems = data;
       },
       error: () => {
-        this.toastr.error("Store error!");
+        this.toastr.error(storeError_message);
       }
     });
   }
@@ -49,7 +50,8 @@ export class CartService implements OnDestroy {
    * Add or update cart items.
    */
   public addProductToCart(productToAddCart: Product): void {
-    this.toastr.success(productToAddCart.name + " added to cart.");
+    this.toastr.success(productToAddCart.name + addToCart_message);
+
     if (this.checkIfItemExistsInCart(productToAddCart)) {
       this.updateCart({ product: this.cartItem.product, quantity: this.cartItem.quantity + 1 })
     } else {
@@ -83,7 +85,7 @@ export class CartService implements OnDestroy {
    * Remove an item from state.
    */
   public removeFromCart(itemToRemove: CartItem): void {
-    this.toastr.warning(itemToRemove.product.name + " removed from cart.");
+    this.toastr.warning(itemToRemove.product.name + removeFromCart_message);
     this.store.dispatch(removeCartItem(itemToRemove));
   }
 
