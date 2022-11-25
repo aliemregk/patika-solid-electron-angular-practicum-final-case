@@ -1,4 +1,4 @@
-import { addCartItem, removeCartItem, updateCartItem } from './cartItem.action';
+import { addCartItem, clearCart, removeCartItem, updateCartItem } from './cartItem.action';
 import { CartItem } from './../../shared/models/cartItem.model';
 import { createReducer, on } from '@ngrx/store';
 import { CartState, initialState } from './cartItem.state';
@@ -15,6 +15,8 @@ import { CartState, initialState } from './cartItem.state';
  * @param  {Action} updateCartItem
  * Update action is used for updating items in state.
  * Find item in current state. Then create a new state and update item.
+ * @param  {Action} clearCart
+ * Set state to initial state.
  */
 export const cartItemReducer = createReducer(
     initialState,
@@ -39,5 +41,8 @@ export const cartItemReducer = createReducer(
         }
         newState.data.splice(indexToUpdate, 1, cartItem)
         return newState;
-    })
+    }),
+    on(clearCart, () => ({
+        data: [...initialState.data]
+    })),
 );

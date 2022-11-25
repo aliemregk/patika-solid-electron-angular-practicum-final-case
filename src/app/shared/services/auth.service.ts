@@ -67,6 +67,7 @@ export class AuthService {
       this.toastr.error(password_message);
     }
   }
+  
   /**
    * @param  {LoginModel} loginModel
    * @returns void

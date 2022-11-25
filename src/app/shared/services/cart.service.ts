@@ -5,7 +5,7 @@ import { CartItem } from './../models/cartItem.model';
 import { getCart } from './../../state-management/cart-state/cartItem.selector';
 import { Store } from '@ngrx/store';
 import { Injectable, OnDestroy } from '@angular/core';
-import { addCartItem, removeCartItem, updateCartItem } from 'src/app/state-management/cart-state/cartItem.action';
+import { addCartItem, clearCart, removeCartItem, updateCartItem } from 'src/app/state-management/cart-state/cartItem.action';
 import { HotToastService } from '@ngneat/hot-toast';
 
 @Injectable({
@@ -96,6 +96,16 @@ export class CartService implements OnDestroy {
    */
   private updateCart(itemToUpdate: CartItem): void {
     this.store.dispatch(updateCartItem(itemToUpdate));
+  }
+
+  /**
+   * @param  {CartItem} itemToUpdate
+   * @returns void
+   * Save cart to local storage and clear cart state.
+   */
+  public clearCart(): void {
+    localStorage.setItem("Cart", JSON.stringify(this.cartItems));
+    this.store.dispatch(clearCart());
   }
 
   /**

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-payment',
@@ -15,6 +16,7 @@ import { Component, OnInit } from '@angular/core';
 export class PaymentComponent implements OnInit, Deactivate {
 
   protected paymentForm!: FormGroup;
+  private isSaved: boolean = false;
 
   /**
    * @param  {FormBuilder} formBuilder
@@ -22,6 +24,7 @@ export class PaymentComponent implements OnInit, Deactivate {
    * @param  {Router} router
    * @param  {ValidationService} formValidation
    * @param  {CartService} cartService
+   * @param  {ProductService} productService
    * Service injections.
    */
   constructor(
@@ -29,7 +32,8 @@ export class PaymentComponent implements OnInit, Deactivate {
     private readonly toastr: HotToastService,
     private readonly router: Router,
     private readonly formValidation: ValidationService,
-    private readonly cartService: CartService
+    private readonly cartService: CartService,
+    private readonly productService: ProductService
   ) { }
 
   /**
@@ -61,13 +65,16 @@ export class PaymentComponent implements OnInit, Deactivate {
   /**
    * @returns void
    * Checks if the payment form is valid.
-   * If it is, proceed. Otherwise, inform user.
+   * If it is, route to products page, save cart data to local storage and clear cart. 
+   * Otherwise, inform user.
    */
   protected pay(): void {
     if (this.paymentForm.valid) {
+      this.isSaved = true;
       this.toastr.success(paymentSucceed_message);
-      localStorage.setItem("Paid", "paid");
       this.router.navigate(["/products"]);
+      this.productService.updateProducts();
+      this.cartService.clearCart();
     } else {
       this.toastr.error(checkInformation_message);
     }
@@ -95,12 +102,8 @@ export class PaymentComponent implements OnInit, Deactivate {
    * Ask user before exiting page to prevent data loss.
    */
   public canExit(): boolean {
-    if (this.paymentForm.dirty) {
-      if (confirm(canExit_message)) {
-        return true;
-      } else {
-        return false;
-      }
+    if (this.paymentForm.dirty && !this.isSaved) {
+      return confirm(canExit_message)
     }
     return true;
   }
