@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   public isLoggedIn: boolean = false;
-  private userToCheck!: User;
+  public userToCheck!: User;
   private subscription!: Subscription;
 
   /**

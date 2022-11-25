@@ -1,8 +1,10 @@
-<div class="container my-5">
+<div class="container my-1 pt-2 border-top">
   <form [formGroup]="paymentForm">
     <div class="row justify-content-center">
-      <div class="row col-md-6 col-sm-10 mt-1 justify-content-center">
-        <div class="col-md-6 col-sm-4 pt-1">
+      <div
+        class="row col-xl-6 col-lg-7 col-md-8 col-sm-10 mt-1 justify-content-center"
+      >
+        <div class="col-6 pt-1">
           <label for="firstName" class="form-label">First name</label>
           <input
             formControlName="firstName"
@@ -13,7 +15,7 @@
             placeholder="First Name"
           />
         </div>
-        <div class="col-md-6 col-sm-4 pt-1">
+        <div class="col-6 pt-1">
           <label for="lastName" class="form-label">Last name</label>
           <input
             formControlName="lastName"
@@ -24,7 +26,7 @@
             placeholder="Last Name"
           />
         </div>
-        <div class="col-md-12 col-sm-8 pt-1">
+        <div class="col-12 pt-1">
           <label for="cardNumber" class="form-label">Address</label>
           <input
             formControlName="address"
@@ -36,7 +38,7 @@
             maxlength="200"
           />
         </div>
-        <div class="col-md-12 col-sm-8 pt-1">
+        <div class="col-12 pt-1">
           <label for="cardNumber" class="form-label">Card Number</label>
           <input
             formControlName="cardNumber"
@@ -50,7 +52,7 @@
             max="9999999999999999"
           />
         </div>
-        <div class="col-md-6 col-sm-8 pt-1">
+        <div class="col-6 pt-1">
           <label for="expiry" class="form-label">Expiry</label>
           <input
             formControlName="expiry"
@@ -62,7 +64,7 @@
             id="expiry"
           />
         </div>
-        <div class="col-md-6 col-sm-8 pt-1">
+        <div class="col-6 pt-1">
           <label for="security" class="form-label">CVV/CVC</label>
           <input
             formControlName="security"

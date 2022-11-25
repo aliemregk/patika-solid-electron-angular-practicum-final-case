@@ -31,8 +31,8 @@
       "id": 4,
       "name": "Laptop",
       "unitPrice": 16500,
-      "description": "Asus Laptop - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat impedit voluptates earum eaque officiis omnis sequi ex reiciendis ut nemo quisquam beatae, temporibus numquam maiores perferendis velit voluptas, dolore rerum.",
-      "coverImg": "https://images.unsplash.com/photo-1527698266440-12104e498b76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "description": "Dell Laptop - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat impedit voluptates earum eaque officiis omnis sequi ex reiciendis ut nemo quisquam beatae, temporibus numquam maiores perferendis velit voluptas, dolore rerum.",
+      "coverImg": "https://images.pexels.com/photos/1006293/pexels-photo-1006293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "categoryId": 1,
       "stock": 100
     },

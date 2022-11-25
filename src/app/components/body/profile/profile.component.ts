@@ -1,45 +1,32 @@
-import { Subscription } from 'rxjs';
+import { AuthService } from './../../../shared/services/auth.service';
 import { User } from './../../../shared/models/user.model';
-import { UserService } from './../../../shared/services/user.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HotToastService } from '@ngneat/hot-toast';
-import { dataError_message } from 'src/app/shared/constants/constants';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit, OnDestroy {
+export class ProfileComponent implements OnInit {
 
   protected user!: User;
   protected userLoaded: boolean = false;
-  private email: string = "";
-  private subscription!: Subscription;
 
+  /**
+   * @param  {AuthService} authService
+   * Service injection.
+   */
   constructor(
-    private readonly userService: UserService,
-    private readonly toastr: HotToastService
+    private readonly authService: AuthService,
   ) { }
 
+  /**
+   * @returns void
+   * Called once, when the instance is created.
+   * Get logged in user's information from auth service.
+   */
   ngOnInit(): void {
-    this.email = localStorage.getItem("registered") || localStorage.getItem("logged in")!
-    this.getUser();
-  }
-
-  getUser() {
-    this.subscription = this.userService.getUserByEmail(this.email).subscribe({
-      next: (data) => {
-        this.user = Object.values(data)[0];
-        this.userLoaded = true;
-      },
-      error: () => {
-        this.toastr.error(dataError_message);
-      }
-    });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.user = this.authService.userToCheck;
+    this.userLoaded = this.user ? true : false
   }
 }

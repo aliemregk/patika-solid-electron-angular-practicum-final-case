@@ -1,3 +1,5 @@
+import { User } from './../../../shared/models/user.model';
+import { AuthService } from './../../../shared/services/auth.service';
 import { Deactivate } from './../../../shared/guards/deactivate.component';
 import { paymentSucceed_message, checkInformation_message, canExit_message } from './../../../shared/constants/constants';
 import { CartService } from 'src/app/shared/services/cart.service';
@@ -17,6 +19,7 @@ export class PaymentComponent implements OnInit, Deactivate {
 
   protected paymentForm!: FormGroup;
   private isSaved: boolean = false;
+  private user!: User;
 
   /**
    * @param  {FormBuilder} formBuilder
@@ -25,6 +28,7 @@ export class PaymentComponent implements OnInit, Deactivate {
    * @param  {ValidationService} formValidation
    * @param  {CartService} cartService
    * @param  {ProductService} productService
+   * @param  {AuthService} authService
    * Service injections.
    */
   constructor(
@@ -33,27 +37,31 @@ export class PaymentComponent implements OnInit, Deactivate {
     private readonly router: Router,
     private readonly formValidation: ValidationService,
     private readonly cartService: CartService,
-    private readonly productService: ProductService
+    private readonly productService: ProductService,
+    private readonly authService: AuthService
   ) { }
 
   /**
    * @returns void
    * Called once, when the instance is created.
+   * Get logged in user's information from auth service. 
    * Call createPaymentForm() function.
    */
   ngOnInit(): void {
+    this.user = this.authService.userToCheck;
     this.createPaymentForm();
   }
 
   /**
    * @returns void
    * Create payment form.
+   * Set logged in user's information as default values.
    */
   private createPaymentForm(): void {
     this.paymentForm = this.formBuilder.group({
-      firstName: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-      lastName: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-      address: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(200)]],
+      firstName: [this.user.firstName, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+      lastName: [this.user.lastName, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+      address: [this.user.address, [Validators.required, Validators.minLength(10), Validators.maxLength(200)]],
       cardNumber: ["", Validators.required],
       expiry: ["", Validators.required],
       security: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
