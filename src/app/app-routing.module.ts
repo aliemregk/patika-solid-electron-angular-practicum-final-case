@@ -1,3 +1,4 @@
+import { ProfileComponent } from './components/body/profile/profile.component';
 import { LoginGuard } from './shared/guards/login.guard';
 import { UnsavedGuard } from './shared/guards/unsaved.guard';
 import { NotFoundComponent } from './components/main-page/not-found/not-found.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {
     path: "", component: SiteLayoutComponent, canActivate: [LoginGuard],
     children: [
+      { path: "profile", component: ProfileComponent },
       { path: "products", component: ProductsComponent },
       { path: "products/category/:categoryid", component: ProductsComponent },
       { path: "productdetails/:productid", component: ProductDetailsComponent },

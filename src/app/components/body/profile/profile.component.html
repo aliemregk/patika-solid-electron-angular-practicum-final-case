@@ -1,0 +1,47 @@
+<app-spinner *ngIf="!userLoaded; else profile"></app-spinner>
+<ng-template #profile class="container">
+  <div class="row row-cols-1">
+    <div class="d-flex flex-column align-items-center text-center p-3">
+      <div class="my-1 cursor-d">
+        <img
+          class="rounded-circle"
+          width="100px"
+          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+          alt="user image"
+        />
+        <p class="mt-1">{{ user.email }}</p>
+      </div>
+      <div class="col-xl-5 col-lg-6 col-md-7 col-sm-7 border-top">
+        <div class="row">
+          <div class="col-md-6 my-2">
+            <label class="labels">First Name</label>
+            <input
+              type="text"
+              class="form-control cursor-d"
+              readonly
+              [placeholder]="user.firstName"
+            />
+          </div>
+          <div class="col-md-6 my-2">
+            <label class="labels">Last Name</label>
+            <input
+              type="text"
+              class="form-control cursor-d"
+              readonly
+              [placeholder]="user.lastName"
+            />
+          </div>
+        </div>
+        <div class="col-md-12 my-2">
+          <label class="labels">Address</label>
+          <input
+            type="text"
+            class="form-control cursor-d"
+            readonly
+            [placeholder]="user.address"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
