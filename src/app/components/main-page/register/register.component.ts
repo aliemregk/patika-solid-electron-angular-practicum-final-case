@@ -4,6 +4,7 @@ import { ValidationService } from './../../../shared/services/validation.service
 import { AuthService } from './../../../shared/services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { createPasswordValidator } from 'src/app/shared/validators/password.validator';
 
 @Component({
   selector: 'app-register',
@@ -48,7 +49,7 @@ export class RegisterComponent implements OnInit {
         lastName: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
         address: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(200)]],
         email: ["", [Validators.required, Validators.email]],
-        password: ["", [Validators.required, Validators.minLength(6)]],
+        password: ["", [Validators.required, Validators.minLength(6), createPasswordValidator()]],
       }),
       serviceTerms: ["", Validators.required],
       privacyPolicy: ["", Validators.required]
@@ -74,6 +75,6 @@ export class RegisterComponent implements OnInit {
    * Get class name with using form validation service for given form control.
    */
   protected getClass(formControlName: string): string {
-    return this.formValidation.validate(this.registerForm, formControlName);
+    return this.formValidation.validate(this.registerForm.get("userDetails") as FormGroup, formControlName);
   }
 }
