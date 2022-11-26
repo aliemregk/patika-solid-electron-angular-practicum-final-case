@@ -31,9 +31,8 @@ export class AuthService {
 
   /**
    * @param  {LoginModel} loginModel
-   * @returns void
-   * Call getUserByEmail() function to get user data from json-server.
-   * Assign return value to a local variable.
+   * @returns Promise<void>
+   * Call getUserByEmail() function to get user data from json-server. Assign return value to a local variable.
    * If user exists call checkPassword() function, otherwise notify user.
    */
   public async signIn(loginModel: LoginModel): Promise<void> {
@@ -48,7 +47,7 @@ export class AuthService {
   /**
    * @param  {string} email
    * @returns Observable<User>
-   * Get request for a single user according to given email. 
+   * Use user service to get data for given email. 
    */
   private getUserByEmail(email: string): Observable<User> {
     return this.userService.getUserByEmail(email);
@@ -67,7 +66,7 @@ export class AuthService {
       this.toastr.error(password_message);
     }
   }
-  
+
   /**
    * @param  {LoginModel} loginModel
    * @returns void

@@ -44,7 +44,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   /**
    * @returns void
    * Use activated route service to get productid parameter from URL.
-   * Assign the parameter to a variable and call getProducts() function.
+   * And with the parameter call getProducts() function.
    * Push subscription to subscriptions array for unsubscribe operation.
    */
   private getUrlParams(): void {
@@ -82,7 +82,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   /**
    * @param  {Product} product
    * @returns void
-   * Add given product to cart.
+   * Add given product to cart using cart service.
    */
   protected addToCart(product: Product): void {
     this.cartService.addProductToCart(product);

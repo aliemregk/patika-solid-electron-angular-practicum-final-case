@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
 
   /**
    * @param  {CartService} cartService
-   * Service injections.
+   * Service injection.
    */
   constructor(private readonly cartService: CartService) { }
 
@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
   /**
    * @param  {CartItem} cartItemToRemove
    * @returns void
-   * Remove given item from cart.
+   * Remove given item from cart and call getCart() function to get final state of cart.
    */
   protected removeFromCart(cartItemToRemove: CartItem): void {
     this.cartService.removeFromCart(cartItemToRemove);

@@ -5,10 +5,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ValidationService {
-
-  constructor() { }
-
-  validate(form: FormGroup, formControlName: string): string {
+  /**
+   * @param  {FormGroup} form
+   * @param  {string} formControlName
+   * @returns string
+   * Return class name for given form group's form control according to its validity.
+   */
+  public validate(form: FormGroup, formControlName: string): string {
     let control = form.get(formControlName)
     if (control?.valid) {
       return 'is-valid';

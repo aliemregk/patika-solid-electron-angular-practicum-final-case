@@ -25,7 +25,7 @@ export class ProductService implements OnDestroy {
 
   /**
    * @returns void
-   * Update product stock.
+   * Update product stock after payment.
    */
   public updateProducts(): void {
     this.cartService.cartItems.forEach((item) => {

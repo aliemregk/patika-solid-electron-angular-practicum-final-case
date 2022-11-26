@@ -4,8 +4,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'shorten'
 })
 export class ShortenPipe implements PipeTransform {
-
-  transform(value: string): string {
+  /**
+   * @param  {string} value
+   * @returns string
+   * Slice input to char "-" and return it.
+   */
+  public transform(value: string): string {
     return value.slice(0, value.indexOf("-"));
   }
 

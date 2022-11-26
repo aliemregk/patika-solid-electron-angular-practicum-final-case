@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  /**
+   * @param  {AuthService} authService
+   * @param  {Router} router
+   * Service injections.
+   */
   constructor(
     private readonly authService: AuthService,
     private readonly router: Router
@@ -16,8 +20,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  logout() {
+  /**
+   * @returns void
+   * Use auth service for logout operation and navigate to main page.
+   */
+  protected logout(): void {
     this.authService.logout();
     this.router.navigate([""]);
   }

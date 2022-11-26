@@ -22,18 +22,10 @@ export class ProductDetailSliderComponent implements OnInit {
   /**
    * @returns void
    * Called once, when the instance is created.
-   * Call getPhotos() function.
-   */
-  ngOnInit(): void {
-    this.getPhotos();
-  }
-
-  /**
-   * @returns void
-   * Get product photos with using photo service.
+   * Get product photos from photo service.
    * Assign data to an observable for further use.
    */
-  private getPhotos(): void {
+  ngOnInit(): void {
     this.photos$ = this.photoService.getPhotosByProductId(this.productId);
   }
 }

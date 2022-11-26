@@ -8,7 +8,6 @@ import { CanActivate, Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
-
   /**
    * @param  {AuthService} authService
    * @param  {HotToastService} toastr
@@ -20,7 +19,6 @@ export class LoginGuard implements CanActivate {
     private readonly toastr: HotToastService,
     private readonly router: Router
   ) { }
-
 
   /**
    * @returns boolean
@@ -36,5 +34,4 @@ export class LoginGuard implements CanActivate {
       return false;
     }
   }
-
 }

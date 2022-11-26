@@ -16,9 +16,7 @@ export class ProfileComponent implements OnInit {
    * @param  {AuthService} authService
    * Service injection.
    */
-  constructor(
-    private readonly authService: AuthService,
-  ) { }
+  constructor(private readonly authService: AuthService) { }
 
   /**
    * @returns void

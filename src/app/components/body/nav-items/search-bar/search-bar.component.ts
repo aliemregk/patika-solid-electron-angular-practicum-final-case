@@ -21,7 +21,9 @@ export class SearchBarComponent implements OnInit {
   searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
 
   /**
+   * @returns void
    * When a change occurs in searchbox emit an event with given value.
+   * 
    */
   protected onSearchTextChanged(): void {
     this.searchTextChanged.emit(this.searchText);

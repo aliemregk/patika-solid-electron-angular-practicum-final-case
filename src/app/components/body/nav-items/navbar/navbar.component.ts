@@ -11,9 +11,18 @@ import { Observable } from 'rxjs';
 export class NavbarComponent implements OnInit {
 
   protected categories$ = new Observable<Category[]>();
-
+  /**
+   * @param  {CategoryService} categoryService
+   * Service injection.
+   */
   constructor(private readonly categoryService: CategoryService) { }
 
+  /**
+   * @returns void
+   * Called once, when the instance is created.
+   * Get categories from category service.
+   * Assign data to an observable for further use.
+   */
   ngOnInit(): void {
     this.categories$ = this.categoryService.getAllCategories();
   }

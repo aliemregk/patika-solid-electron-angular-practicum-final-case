@@ -71,7 +71,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   /**
    * @param  {Product} product
    * @returns void
-   * Add given product to cart.
+   * Add given product to cart using cart service.
    */
   protected addToCart(product: Product): void {
     this.cartService.addProductToCart(product);
@@ -82,7 +82,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
    * @returns void
    * Get input from search bar component and assign it to a local variable.
    */
-  onSearch(filter: string): void {
+  protected onSearch(filter: string): void {
     this.searchText = filter;
   }
 

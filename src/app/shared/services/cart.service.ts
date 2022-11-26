@@ -29,9 +29,8 @@ export class CartService implements OnDestroy {
 
   /**
    * @returns void
-   * Get cart items from state and subscribe it.
+   * Get cart items from state and subscribe it. Use a subscription for unsubscribe operation.
    * Assign state data to cartItems variable for further use.
-   * Use a subscription for unsubscribe operation.
    */
   public getCartItems(): void {
     this.subscription = this.store.select(getCart).subscribe({
@@ -62,7 +61,7 @@ export class CartService implements OnDestroy {
   /**
    * @param  {Product} productToAddCart
    * @returns boolean
-   * Check whether the item exists in cart.
+   * Check whether the item exists in cart. If it exists return true, otherwise false.
    */
   private checkIfItemExistsInCart(productToAddCart: Product): boolean {
     this.getCartItems();
