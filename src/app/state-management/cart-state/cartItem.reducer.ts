@@ -34,7 +34,8 @@ export const cartItemReducer = createReducer(
         return newState;
     }),
     on(updateCartItem, (state, cartItem) => {
-        const indexToUpdate: number = state.data.indexOf(cartItem);
+        const cartItemToUpdate = state.data.find(item => item.product === cartItem.product);
+        const indexToUpdate: number = state.data.indexOf(cartItemToUpdate as CartItem);
 
         const newState: CartState<CartItem> = {
             data: [...state.data]
