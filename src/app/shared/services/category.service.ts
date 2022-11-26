@@ -13,7 +13,7 @@ export class CategoryService {
 
   /**
    * @param  {HttpClient} httpClient
-   * Service injection.
+   * HttpClient injection.
    */
   constructor(private readonly httpClient: HttpClient) { }
 
