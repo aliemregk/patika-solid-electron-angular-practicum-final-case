@@ -2,4 +2,5 @@ a,
 p {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
