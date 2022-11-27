@@ -1,8 +1,23 @@
-# FinalCase
+# Patika & Solid Electron Angular Practicum Final Case
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+## About Project
 
-## Development server
+This is a e-commerce website demo with product sale, user registration and login.
+Angular version 14.2.10 is used in this project.
+
+## Used Technologies and Their Versions
+![Angular](https://img.shields.io/badge/angular%2014.2.10-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript%204.7.4-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap%20v5.2.2-blueviolet?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+[![Bootstrap Icons](https://img.shields.io/badge/Bootstrap%20icons%20v1.10.2-blueviolet?style=for-the-badge&logo=bootstrap&logoColor=white)](https://icons.getbootstrap.com)
+[![Bootswatch Litera](https://img.shields.io/badge/bootswatch%20litera%20v5.2.2-blueviolet?style=for-the-badge&logo=bootstrap&logoColor=white)](https://bootswatch.com/litera/)
+[![Ngrx](https://img.shields.io/badge/ngrx%20v14.3.2-purple?style=for-the-badge&logoColor=white)](https://ngrx.io/)
+[![Ngneat Hot-Toast](https://img.shields.io/badge/ngneat%20hot%20toast%20v4.1.0-brown?style=for-the-badge&&logoColor=white)](https://ngneat.github.io/hot-toast/)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![VS Code](https://img.shields.io/badge/Visual%20studio%20code%20-%23007ACC.svg?style=for-the-badge&logo=vscode&logoColor=white)
+
+## Project Setup
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
