@@ -16,6 +16,7 @@ Angular version 14.2.10 is used in this project.
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 [![VS Code](https://img.shields.io/badge/Visual%20studio%20code%20-%23007ACC.svg?style=for-the-badge&logo=vscode&logoColor=white)](https://code.visualstudio.com/)
+[![JSON Server](https://img.shields.io/badge/json%20server%20v0.17.1-green?style=for-the-badge&logoColor=white)](https://github.com/typicode/json-server)
 
 ## Project Installation
 
